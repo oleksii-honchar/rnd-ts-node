@@ -1,8 +1,10 @@
 import { MockBook } from './book.test-helpers';
 import Library from './library';
+import { mockLogger } from './logger.test-helpers';
+
 describe('Library', () => {
   it('should add and find books', () => {
-    const library = new Library();
+    const library = new Library({ logger: mockLogger });
     const book = new MockBook('1', 'Test Book', 'Test Author');
 
     library.addBook(book);
@@ -10,7 +12,7 @@ describe('Library', () => {
   });
 
   it('should return all books', () => {
-    const library = new Library();
+    const library = new Library({ logger: mockLogger });
     const book1 = new MockBook('1', 'Test Book 1', 'Test Author');
     const book2 = new MockBook('2', 'Test Book 2', 'Test Author');
 
